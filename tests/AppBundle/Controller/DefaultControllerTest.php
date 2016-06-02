@@ -110,7 +110,7 @@ class DefaultControllerTest extends WebTestCase
 
         $crawler = $client->click($link);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertSame('Plain page', $crawler->filter('div.right_col h3')->text());
+        $this->assertSame('Plain Page', $crawler->filter('div.right_col div.x_title h2')->text());
         $this->assertContains(
             'Gentelella',
             $crawler->filter('div.top_nav a:contains("Gentelella")')->text()
@@ -172,8 +172,8 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('GET', sprintf('%s', $path));
         $this->assertTrue($client->getResponse()->getStatusCode() === 200);
         $this->assertSame(
-            'Plain page',
-            $crawler->filter('h3:contains("Plain page")')->text()
+            'Plain Page',
+            $crawler->filter('div.right_col div.x_title h2')->text()
         );
     }
     /**
@@ -189,6 +189,7 @@ class DefaultControllerTest extends WebTestCase
             ['gentelella/contacts'],
             ['gentelella/e_commerce'],
             ['gentelella/echarts'],
+            ['gentelella/fixed_footer'],
             ['gentelella/fixed_sidebar'],
             ['gentelella/form'],
             ['gentelella/form_advanced'],
@@ -210,6 +211,7 @@ class DefaultControllerTest extends WebTestCase
             ['gentelella/media_gallery'],
             ['gentelella/morisjs'],
             ['gentelella/other_charts'],
+            ['gentelella/page_403'],
             ['gentelella/page_404'],
             ['gentelella/page_500'],
             ['gentelella/plain_page'],
@@ -217,7 +219,6 @@ class DefaultControllerTest extends WebTestCase
             ['gentelella/profile'],
             ['gentelella/project_detail'],
             ['gentelella/projects'],
-            ['gentelella/sign_up'],
             ['gentelella/tables'],
             ['gentelella/tables_dynamic'],
             ['gentelella/typography'],
@@ -239,6 +240,7 @@ class DefaultControllerTest extends WebTestCase
             ['gentelella/contacts'],
             ['gentelella/e_commerce'],
             ['gentelella/echarts'],
+            ['gentelella/fixed_footer'],
             ['gentelella/fixed_sidebar'],
             ['gentelella/form'],
             ['gentelella/form_advanced'],
@@ -264,7 +266,6 @@ class DefaultControllerTest extends WebTestCase
             ['gentelella/profile'],
             ['gentelella/project_detail'],
             ['gentelella/projects'],
-            ['gentelella/sign_up'],
             ['gentelella/tables'],
             ['gentelella/tables_dynamic'],
             ['gentelella/typography'],
@@ -285,6 +286,7 @@ class DefaultControllerTest extends WebTestCase
             ['admin/contacts'],
             ['admin/e_commerce'],
             ['admin/echarts'],
+            ['admin/fixed_footer'],
             ['admin/fixed_sidebar'],
             ['admin/form'],
             ['admin/form_advanced'],
@@ -313,7 +315,6 @@ class DefaultControllerTest extends WebTestCase
             ['admin/profile'],
             ['admin/project_detail'],
             ['admin/projects'],
-            ['admin/sign_up'],
             ['admin/tables'],
             ['admin/tables_dynamic'],
             ['admin/typography'],
@@ -334,6 +335,7 @@ class DefaultControllerTest extends WebTestCase
             ['admin/contacts'],
             ['admin/e_commerce'],
             ['admin/echarts'],
+            ['admin/fixed_footer'],
             ['admin/fixed_sidebar'],
             ['admin/form'],
             ['admin/form_advanced'],
@@ -361,7 +363,6 @@ class DefaultControllerTest extends WebTestCase
             ['admin/profile'],
             ['admin/project_detail'],
             ['admin/projects'],
-            ['admin/sign_up'],
             ['admin/tables'],
             ['admin/tables_dynamic'],
             ['admin/typography'],
